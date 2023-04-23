@@ -1,0 +1,61 @@
+<div class="container-watchlist">
+  <h1 class="movie-title">Ma liste à voir</h1>
+  <hr>
+ <h2>Film vu(s)</h2>
+
+
+<ul class="movies-list">
+  <li class="movies-list-item" *ngFor="let film of filmsRegardes">
+    <div class="movie-poster">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + film.poster_path"
+        [alt]="film.title"
+      />
+    </div>
+    <div class="movies-list-details">
+      <div class="movies-list-title">
+        <h3>{{ film.title }}</h3>
+        <p>({{ film.release_date.slice(0, 4) }})</p>
+      </div>
+
+      <div class="movies-list-visio">
+        <p>
+          <i class="fas fa-star"></i>
+          {{ film.vote_average | number : "1.0-0" }}
+        </p>
+        <button (click)="toggleRegarde(film)"><i class="fas fa-eye"></i>Vu</button>
+
+      </div>
+    </div>
+  </li>
+</ul>
+<hr>
+<h2>Films à voir</h2>
+
+<ul class="movies-list">
+  <li class="movies-list-item" *ngFor="let film of filmsAVoir">
+    <div class="movie-poster">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + film.poster_path"
+        [alt]="film.title"
+      />
+    </div>
+    <div class="movies-list-details">
+      <div class="movies-list-title">
+        <h3>{{ film.title }}</h3>
+        <p>({{ film.release_date.slice(0, 4) }})</p>
+      </div>
+
+      <div class="movies-list-visio">
+        <p>
+          <i class="fas fa-star"></i>
+          {{ film.vote_average | number : "1.0-0" }}
+        </p>
+        <button (click)="toggleRegarde(film)"><i class="fas fa-eye-slash"></i>A voir</button>
+
+      </div>
+    </div>
+  </li>
+</ul>
+ 
+</div>

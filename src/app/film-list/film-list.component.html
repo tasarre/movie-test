@@ -1,0 +1,65 @@
+<h1>Les Films</h1>
+
+<div class="top-button-filter">
+  <a (click)="trierParDate()"><i class="fas fa-sort"></i>Trier par date</a>
+  <a (click)="trierParNote()"><i class="fas fa-sort"></i>Trier par note</a>
+</div>
+
+<div *ngIf="films.length === 0">Chargement des films...</div>
+<span class="message" *ngIf="message">{{ message }}</span>
+<ul class="movies-list">
+  
+  <li class="movies-list-item" *ngFor="let film of films">
+
+    <div class="movies-list-favorite">
+      <i
+        role="button"
+        class="heart-icon icon-border far fa-heart fa-2x"
+        (click)="ajouterAuxFavoris(film)"
+        *ngIf="!estDansFavoris(film)"
+      ></i>
+      <i
+        role="button"
+        class="heart-icon icon-full fas fa-heart fa-2x"
+        (click)="supprimerDesFavoris(film)"
+        *ngIf="estDansFavoris(film)"
+      ></i>
+    </div>
+    <div class="movie-poster">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + film.poster_path"
+        [alt]="film.title"
+      />
+    </div>
+
+    <div class="movies-list-details">
+      <div class="movies-list-title">
+        <h3>{{ film.title }}</h3>
+        <p>({{ film.release_date.slice(0, 4) }})</p>
+      </div>
+
+      <div class="movies-list-visio">
+        <span
+          role="button"
+          (click)="ajouterALaListeDeVisionnage(film)"
+          *ngIf="!watchlistService.isFilmInWatchlist(film)"
+        >
+          <i class="fas fa-video"></i>
+          Liste à regarder
+        </span>
+        <span
+          role="button"
+          (click)="supprimerDeWatchlist(film)"
+          *ngIf="estDansWatchlist(film)"
+        >
+          <i class="fas fa-video-slash"></i>
+          Retiré liste à regarder
+        </span>
+        <p>
+          <i class="fas fa-star"></i>
+          {{ film.vote_average | number : "1.0-0" }}
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>

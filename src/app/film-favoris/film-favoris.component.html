@@ -1,0 +1,26 @@
+<h1 class="movie-title">Mes Favoris</h1>
+<div *ngIf="favoris.length === 0">Aucun film dans les favoris.</div>
+<ul class="movies-list">
+  <li class="movies-list-item" *ngFor="let film of favoris">
+    
+    <div class="movie-poster">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + film.poster_path"
+        [alt]="film.title"
+      />
+    </div>
+    <div class="movies-list-details">
+      <div class="movies-list-title">
+        <h3>{{ film.title }}</h3>
+        <p>({{ film.release_date.slice(0, 4) }})</p>
+      </div>
+
+      <div class="movies-list-visio">
+        <p>
+          <i class="fas fa-star"></i>
+          {{ film.vote_average | number : "1.0-0" }}
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>

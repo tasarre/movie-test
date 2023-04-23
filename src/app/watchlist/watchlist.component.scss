@@ -1,0 +1,43 @@
+.container-watchlist {
+    padding: 15px;
+
+
+}
+.movies-list {
+    &-item {
+        flex: 0 0 calc(14% - 16px);
+    
+        .movie-poster {
+            height: 200px;
+        }
+    }
+    &-details {
+
+    }
+    &-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h3 {
+            font-size: 13px;
+            max-width: 100px;
+        }
+        p {
+        font-size: 10px;
+        }
+    }
+    &-visio {
+        p {
+            font-size: 12px;
+        }
+        button {
+            background: none;
+            border: none;
+            color: #01A6FF;
+            i {
+                margin-right: 5px;
+            }
+        }
+    }
+}
+

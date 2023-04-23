@@ -1,1 +1,154 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    font-size: 60px;
+    text-align: center;
+    color: #01A6FF;
+    text-decoration: underline;
+}
+.top-button {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 998; 
+    padding: 15px 0;
+    ul {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        li {
+            list-style: none;
+            margin-left: 20px;
+            button {
+                background: #01A6FF;
+                border: none;
+                padding: 10px 20px;
+                color: white;
+                font-size: 15px;
+                border-radius: 5px;
+                cursor: pointer;
+
+                i {
+                    margin-right: 5px;
+                }
+                &:hover {
+                    background: #017cbe;
+                }
+            }
+        }
+    }
+
+    &-filter {
+
+        a {
+            background: none;
+            border: none;
+            color: #01A6FF;
+            margin-left: 15px;
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+}
+.movies-list {
+    display: flex;
+    flex-wrap: wrap;
+  
+  
+    &-item {
+      flex: 0 0 calc(24% - 16px);
+      margin: 10px;
+      box-sizing: border-box;
+      position: relative;
+      box-shadow: -1px 0px 6px 1px rgba(66, 66, 66, 0.34);
+      border-radius: 5px;
+      overflow: hidden;
+
+      @media (max-width: 1200px) {
+          flex: 0 0 calc(32.33% - 16px);
+      }
+      
+      @media (max-width: 992px) {
+          flex: 0 0 calc(48% - 16px);
+      }
+      
+      @media (max-width: 768px) {
+          flex: 0 0 calc(100% - 16px);
+      }
+      
+      .heart-icon {
+        transition: transform 0.5s ease;
+        cursor: pointer;
+      }
+      .icon-border {
+        color: #01A6FF;
+      }
+      .icon-full {
+        color: #01A6FF;
+      }
+      
+      .heart-icon:active {
+        transform: scale(1.8);
+      }
+      
+      img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        transition: transform 0.3s ease;
+      }
+      &:hover {
+        .movie-poster img{
+          transform: scale(1.1);
+          transition: transform 0.3s ease;
+        }
+      }
+      .movie-poster {
+        position: relative;
+        overflow: hidden;
+      }
+    }
+    &-favorite {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      z-index: 99;
+    }
+    &-details {
+      padding: 0 15px;
+    }
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h3 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+    &-visio {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        color: #FFAA41;
+        .fa-star {
+          
+        }
+      }
+      span {
+        cursor: pointer;
+        color: #01A6FF;
+      }
+    }
+  }
